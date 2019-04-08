@@ -48,14 +48,14 @@ public class CasePersonTest {
             List<Case> list = session.getEntityManagerFactory().createEntityManager().createQuery("select a from eu.olaf.example.model.test.Case as a").getResultList();
             list.stream().forEach(aCase -> {LOG.info(aCase.toString());});
         });
-        // overtake
-        doInHibernate(this::sf, session -> {
-            Case cas2 = Case.make().withId(4L).withName("CASE_2_NEW").addPerson(Person.make().withId(2L).withName("PERSON_20_NEW"));
-            session.saveOrUpdate(cas2);
-        });
-        doInHibernate(this::sf, session -> {
-            List<Case> list = session.getEntityManagerFactory().createEntityManager().createQuery("select a from eu.olaf.example.model.test.Case as a").getResultList();
-            list.stream().forEach(aCase -> {LOG.info(aCase.toString());});
-        });
+//        // overtake
+//        doInHibernate(this::sf, session -> {
+//            Case cas2 = Case.make().withId(4L).withName("CASE_2_NEW").addPerson(Person.make().withId(2L).withName("PERSON_20_NEW"));
+//            session.saveOrUpdate(cas2);
+//        });
+//        doInHibernate(this::sf, session -> {
+//            List<Case> list = session.getEntityManagerFactory().createEntityManager().createQuery("select a from eu.olaf.example.model.test.Case as a").getResultList();
+//            list.stream().forEach(aCase -> {LOG.info(aCase.toString());});
+//        });
     }
 }
