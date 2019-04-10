@@ -1,15 +1,18 @@
 package eu.olaf.example.model.test;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
-@Entity(name = "T_B")
+@Entity(name = "T_SEIZURE")
 public class Seizure {
     @Id
-    @GeneratedValue
+    @Column(name = "case_id")
     private Long id;
+
+    @OneToOne
+    @JoinColumn
+    @MapsId
+    private Case cas;
 
     // @NotNull
     private String desc;
@@ -21,6 +24,13 @@ public class Seizure {
     public String getDesc() { return desc; }
     public void setDesc(String desc) { this.desc = desc; }
     public Seizure withDesc(String desc) { setDesc(desc); return this; }
+
+    public Case getCas() {
+        return cas;
+    }
+    public void setCas(Case cas) {
+        this.cas = cas;
+    }
 
     @Override
     public String toString() {
