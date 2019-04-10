@@ -1,18 +1,6 @@
-What is aCase problem?
+problem for this curl q
 
-case - 1-1 train
-    train - 1-N containers
-case - 1-1 vessel
-    vessel - 1-N containers
-case - 1-1 owner
-case - 1-N persons
-case - 1-N
-case - M-N attachments
+curl http://localhost:8080/cases/1 -X PUT --header "Content-type:application/json" --data '{"name": "case1", "id":1, "seizure": {"id":4, "desc":"seizure1"}, "persons": null}'
+curl http://localhost:8080/cases/1 -X PUT --header "Content-type:application/json" --data '{"name": "case1", "id":1, "seizure": {"id":4, "desc":"seizure1"}, "persons": []}'
 
-describe
-demonstrate
-
-How solution looks like in Java?
-How solution looks like on DB level?
-How easy is to Query simple query, HQL, Native SQL?
-How easy is to save/update/delete/get?
+{"timestamp":"2019-04-10T19:48:24.057+0000","status":500,"error":"Internal Server Error","message":"A collection with cascade=\"all-delete-orphan\" was no longer referenced by the owning entity instance: eu.olaf.example.model.test.Case.persons; nested exception is org.hibernate.HibernateException: A collection with cascade=\"all-delete-orphan\" was no longer referenced by the owning entity instance: eu.olaf.example.model.test.Case.persons","path":"/cases/1"}
